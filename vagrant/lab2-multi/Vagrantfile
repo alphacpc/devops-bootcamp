@@ -1,0 +1,44 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+IP1 = "192.168.56.10"
+IP2 = "192.168.56.11"
+IP3 = "192.168.56.12"
+IMAGE = "ubuntu/jammy64"
+CPU = 1
+RAM = 1024
+
+Vagrant.configure("2") do |config|
+
+  #Config load balancer machine
+  config.vm.define "lb" do |lb|
+    lb.vm.box = IMAGE
+    lb.vm.network "private_network", ip: IP3
+  end
+    config.vm.provider "virtualbox" do |vb|
+      vb.memory = RAM
+      vb.cpus = CPU
+    end
+
+  #Config web1 machine
+  config.vm.define "web1" do |web1|
+    web1.vm.box = IMAGE
+    web1.vm.network "private_network", ip: IP1
+  end
+    config.vm.provider "virtualbox" do |vb|
+      vb.memory = RAM
+      vb.cpus = CPU
+    end
+
+  #Config web2 machine
+  config.vm.define "web2" do |web2|
+    web2.vm.box = IMAGE
+    web2.vm.network "private_network", ip: IP2
+    web2.vm.network "forwarded_port", guest: 80, host: 8001, host_ip: "127.0.0.1"
+  end
+    config.vm.provider "virtualbox" do |vb|
+      vb.memory = RAM
+      vb.cpus = CPU
+    end
+
+end

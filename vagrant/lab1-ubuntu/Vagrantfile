@@ -1,14 +1,19 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
+IP = "192.168.56.10"
+CPU = 1
+RAM = 2048
+
 Vagrant.configure("2") do |config|
   config.vm.box = "ubuntu/jammy64"
-  config.vm.network "private_network", type: "dhcp"
+  config.vm.network "private_network", ip: IP
   config.vm.network "forwarded_port", guest: 80, host: 8000, host_ip: "127.0.0.1"
 
   config.vm.provider "virtualbox" do |vb|
     vb.gui = false
-    vb.memory = "2048"
+    vb.memory = RAM
+    vb.cpus = CPU
   end
 
   config.vm.provision "shell", inline: <<-SHELL

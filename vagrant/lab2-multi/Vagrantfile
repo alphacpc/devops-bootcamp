@@ -19,8 +19,9 @@ Vagrant.configure("2") do |config|
       vb.memory = RAM
       vb.cpus = CPU
     end
+    
 
-  #Config web1 machine
+  #Config web1 machine / apache
   config.vm.define "web1" do |web1|
     web1.vm.box = IMAGE
     web1.vm.network "private_network", ip: IP1
@@ -29,8 +30,12 @@ Vagrant.configure("2") do |config|
       vb.memory = RAM
       vb.cpus = CPU
     end
+    config.vm.provision "shell", inline: <<-SHELL
+      apt-get update
+      apt-get install -y apache
+    SHELL
 
-  #Config web2 machine
+  #Config web2 machine / nginx
   config.vm.define "web2" do |web2|
     web2.vm.box = IMAGE
     web2.vm.network "private_network", ip: IP2
@@ -40,5 +45,9 @@ Vagrant.configure("2") do |config|
       vb.memory = RAM
       vb.cpus = CPU
     end
+    config.vm.provision "shell", inline: <<-SHELL
+      apt-get update
+      apt-get install -y nginx
+    SHELL
 
 end

@@ -7,3 +7,7 @@ vagrant/lab2-multi/.vagrant
 vagrant/lab1-bootcamp/.vagrant
 vagrant/lab1-bootcamp/jsonplaceholder/flask-env/
 vagrant/lab1-bootcamp/jsonplaceholder/.env
+vagrant/lab1-bootcamp/jsonplaceholder-app/controllers/__pycache__/
+vagrant/lab1-bootcamp/jsonplaceholder-app/models/__pycache__/
+vagrant/lab1-bootcamp/jsonplaceholder-app/routes/__pycache__/
+

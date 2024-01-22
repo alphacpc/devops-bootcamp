@@ -16,12 +16,12 @@ app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
 # CORS(app)
 
 
-app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URI')
+# app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URI')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = os.getenv('TRACK_MODIFICATIONS')
 app.config['JSON_SORT_KEYS'] = os.getenv('JSON_SORT_KEYS')
-db = SQLAlchemy(app)
+# db = SQLAlchemy(app)
 
-CORS(app, resources={r"/*": {"origins": os.getenv('ACCEPT_ORIGIN_IP')  }}) 
+# CORS(app, resources={r"/*": {"origins": os.getenv('ACCEPT_ORIGIN_IP')  }}) 
 
 
 

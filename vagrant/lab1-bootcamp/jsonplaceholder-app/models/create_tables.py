@@ -3,11 +3,11 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://groupe3:passer123@localhost/projet_flask'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://root:root@0.0.0.0:5432/admin_db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
-CORS(app)
+# CORS(app)
 
 ###############################
 ######CREATION DES TABLES######

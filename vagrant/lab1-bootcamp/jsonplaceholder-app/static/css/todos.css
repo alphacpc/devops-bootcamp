@@ -1,0 +1,67 @@
+/* ****************************** */
+/* ********TABLE TODO LIST****** */
+/* **************************** */
+#tableTodoList{
+    margin-bottom: 30px;
+}
+
+
+/* #tableTodoList thead{
+    margin-bottom: 30px;
+} */
+
+#tableTodoList thead tr th{
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 25px 0;
+}
+
+#tableTodoList tbody tr td{
+    text-align: center;
+    letter-spacing: 1px;
+    font-size: 25px;
+    padding: 25px 0;
+}
+
+#tableTodoList tbody tr td:first-child{
+    width: 40%;
+}
+
+#tableTodoList td span.status{
+    background: #ECFFFD;
+    padding: 15px 20px;
+    font-size: 20px;
+    border-radius: 30px;
+    color: #fff;
+}
+
+#tableTodoList td span.status.done{
+    background: #5BD48C;
+
+}
+#tableTodoList td span.status.todo{
+    background: #C4C4C4;
+}
+#tableTodoList td span.status.pending{
+    background: #EDCA11;
+}
+#tableTodoList{
+    border: none;
+    width: 100%;
+}
+.divTodos{
+    background-color: #fff;
+    margin-top: 30px;
+    padding: 20px;
+    border-radius: 4px;
+}
+.containerTodos{
+    padding: 20px;
+}
+
+#too{
+    margin-top: 20px;
+    margin-bottom: 30px;
+    font-size: 35px;
+}

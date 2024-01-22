@@ -1,0 +1,121 @@
+body{
+    background-color: rgb(180, 247, 249);
+}
+.big{
+    background-color: #ffffff;
+    /* height: auto; */
+    margin-top: 50px;
+    padding: 20px;
+}
+/* 
+div[class="big"] div{
+    height: 19%;
+} */
+.section1{
+    height: 35%;
+    display: block;
+}
+.section2{
+    height: 25%;
+}
+h1{ 
+    opacity: 0.6;
+}
+.p2{
+    text-align: left;
+    width: 40%;
+}
+.p1{
+    font-weight: bold;
+    text-align: right;
+    padding-right: 25px;
+    width: 55%;
+}
+.p1, .p2{
+    display: inline-block;
+}
+.tr{
+    margin: 4%;
+}
+
+#table2{
+    height: 25%; 
+    margin: 2% ;
+    
+}
+
+#table1{
+    height: 45%;
+    margin: 2%;
+    display: flex;
+    width: 95%;
+}
+#sect1{
+    width: 40%;
+}
+
+.p1_1{
+    width: 20%;
+}
+
+#sect2{
+    padding-top: 3.5%;
+    width: 45%;
+    margin-left: 3%;
+}
+
+/* #################POSTS#################### */
+
+#postHead{
+    height: 10%;
+    text-align: right;
+    margin-top: 5%;
+}
+#big{
+    height: 75%;
+}
+#postTable{
+    height: 85%;
+   
+}
+.h3{
+
+    width: 20%;
+}
+#postTable{
+    width: 100%;
+    margin-bottom: 30px;
+}
+.tr{
+    margin: 27% 0;
+}
+.td{
+    text-align: center;
+}
+
+#postTable .td{
+    font-size: 20px;
+    line-height: 30px;
+}
+
+input[value="Charger"]{
+    margin-left: 2%;
+    font-size: xx-large;
+    border-radius: 7%;
+    background-color: rgb(6, 90, 62);
+    border: 1px rgb(6, 90, 62);
+}
+
+input[value="Ajouter"]{
+    font-size: xx-large;
+    border-radius: 7%;
+    margin-right: 3%;
+}
+
+.fa-pen{
+    color: rgb(6, 90, 62) !important;
+}
+.fa-solid{
+    margin: 2%;
+    align-items: center;
+}

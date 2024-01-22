@@ -1,3 +1,9 @@
 .vagrant
 
+vagrant/lab1-ubuntu/.vagrant
+vagrant/lab2-multi/.vagrant
+
+# LAB 1 bootcamp devops
 vagrant/lab1-bootcamp/.vagrant
+vagrant/lab1-bootcamp/jsonplaceholder/flask-env/
+vagrant/lab1-bootcamp/jsonplaceholder/.env

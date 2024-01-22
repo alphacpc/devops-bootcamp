@@ -1,0 +1,506 @@
+/* ************************** */
+/* ******STYLE SIDE BAR****** */
+/* ************************** */
+
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: sans-serif;
+    list-style: none;
+    font-size: 25px;
+}
+
+body{
+    background-color: #ECFFFD;
+}
+
+.userContainer{
+    display: flex;
+    min-height: 100vh;
+    position: relative;
+}
+
+.divSideBar{
+    background: #43919B;
+    flex: 1;
+}
+.divSideBar.mask{
+    display: none;
+}
+
+#bars{
+    display: none;
+}
+#spanBars{
+    color: white;
+    cursor: pointer;
+    background: #FD9E9E;
+    padding: 4px;
+    border-radius: 2px;
+    box-shadow: 0 4px 8px 0 #000000;
+    position: absolute;
+    left: 14%;
+    top: 20px;
+    z-index: 44;
+}
+#spanBars.mask{
+    left: 1% ;
+}
+
+
+.divUsername{
+    background: #006778;
+    padding: 80px 10px;
+}
+.divUsername h1{
+    color: #ffffff;
+    text-align: center;
+    font-size: 45px;
+    line-height: 55px;
+    opacity: 1 !important;
+    text-transform: capitalize;
+}
+
+.ulLinks{
+    width: 100%;
+}
+
+.ulLinks li{
+    padding: 20px;
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+    transition: all ease .3s;
+}
+.ulLinks li.active,
+.ulLinks li:hover{
+    background: #FD9E9E;
+}
+.ulLinks li a{
+    width: 100px !important;
+    margin-left: 20px;
+    color: #ffffff;
+    letter-spacing: 1px;
+}
+.ulLinks li span{
+    color: #ffffff;
+    position: absolute;
+    left: 20px;
+}
+
+.ulLinks li span.fa-solid{
+    margin: 0 !important;
+}
+
+
+/* *********************** */
+/* *******PARTIE USER *** */
+/* ********************* */
+.divContentUser{
+    flex: 5;
+}
+
+.divContentUser tr a,
+.divContentUser .divAlbums a{
+    color: #323232;
+}
+
+.divContentUser .singleAlbum p{
+    color: #323232;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+
+.divMaps{
+    width: 100%;
+}
+
+.divMaps #map{
+    height: 30vh;
+    /* object-fit: cover; */
+}
+
+
+
+
+
+
+/* ************************ */
+/* ****** STYLE ALBUM **** */
+/* ********************** */
+.containerAlbum{
+    padding: 20px;
+}
+
+.btns{
+    display: flex;
+    justify-content: flex-end;
+}
+.btns button{
+    padding: 20px 20px;
+    border: none;
+    width: 240px;
+    cursor: pointer;
+    border-radius: 4px;
+    letter-spacing: 1px;
+}
+.btns button:first-child{
+    margin-right: 10px;
+    background-color: #ffffff;
+}
+.btns a:last-child{
+    background-color: #006778;
+    color: #ffffff;
+}
+
+
+.divContainerAlbum{
+    background-color: #ffffff;
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 4px;
+}
+.divContainerAlbum h2{
+    margin-bottom: 20px;
+    font-size: 35px;
+}
+
+.divAlbums{
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+.divAlbums .singleAlbum{
+    margin-right: 37px;
+    margin-bottom: 40px;
+    width: 18%;
+}
+.divAlbums .singleAlbum:nth-child(5n){
+    margin-right: 0px;
+}
+
+.divAlbums .singleAlbum .divImage{
+    width: 100%;
+    height: 200px;
+    background: #4d4d4d;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+.divAlbums .singleAlbum .divImage img{
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+.divAlbums .singleAlbum img{
+    width: 100%;
+    height: 200px;
+}
+.divAlbums .singleAlbum .divPhotos{
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.divAlbums .singleAlbum .divPhotos > span{
+    font-size: 20px;
+}
+
+.divAlbums .singleAlbum .divPhotos div{
+    width: 100%;
+    text-align: end;
+}
+
+.divAlbums .singleAlbum span{
+    text-align: center;
+    letter-spacing: 1px;
+    margin-top: 5px;
+}
+
+
+
+
+
+
+/* ************************** */
+/* ******SINGLE ALBUM******* */
+/* ************************ */
+.divHeadAlbum{
+    display: flex;
+    justify-content: space-between;
+}
+.divHeadAlbum .divFaIcons span{
+    cursor: pointer;
+    transition: all ease .3s;
+}
+.divHeadAlbum .divFaIcons span:first-child{
+    color: #006778;
+}
+.divHeadAlbum .divFaIcons span:last-child{
+    color: #f05;
+    margin-left: 10px;
+}
+
+
+
+
+
+
+
+/* ************************** */
+/* ******SINGLE POST******* */
+/* ************************ */
+.containerSinglePost{
+    padding: 20px;
+}
+.containerSinglePost .btns button{
+    background: #ffffff;
+    color: #000000;
+    width: 350px;
+    margin-right: 0;
+}
+
+.divContainerDetail{
+    background: #ffffff;
+    padding: 20px;
+    margin-top: 30px;
+    border-radius: 4px;
+}
+
+.divContainerDetail h2{
+    font-size: 35px;
+    line-height: 50px;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+.divContainerDetail p{
+    font-size: 24px;
+    letter-spacing: 1px;
+    opacity: 0.8;
+}
+
+.divCommentaires{
+    margin: 30px 0;
+}
+
+.divCommentaires h2{
+   font-size: 30px;
+   color: #4d4d4d;
+}
+
+.divCommentaires table{
+    width: 100%;
+}
+
+.divCommentaires table tr td{
+    padding: 20px;
+    font-size: 20px;
+    line-height: 30px;
+    text-align: center;
+}
+
+.divCommentaires table tr td:last-child{
+    text-align: end;
+}
+
+.divCommentaires table tr td:last-child span{
+    cursor: pointer;
+    transition: all ease .3s;
+    margin-left: 10px;
+}
+
+.fa-trash{
+    color: #f05;
+}
+
+.divCommentaires table tr td:nth-child(1){
+    width: 20%;
+}
+
+.divCommentaires table tr td:nth-child(2){
+    width: 40%;
+
+}
+
+.divCommentaires table tr td:nth-child(3){
+    width: 20%;
+
+}
+
+.divCommentaires table tr td:nth-child(4){
+    width: 10%;
+
+}
+
+
+/* ******************************* */
+/* **********STYLE POSTS********* */
+/* ***************************** */
+
+.divContainerPosts{
+    padding: 20px;
+}
+
+.divContainerPosts .big{
+    border-radius: 4px;
+}
+
+.divContainerPosts h2{
+    font-size: 35px;
+    margin-bottom: 30px;
+}
+
+.divContainerPosts #postTable tr th.th{
+    text-transform: uppercase;
+    padding: 20px 0;
+}
+
+.divContainerPosts #postTable tr td.td{
+    padding: 30px 0;
+}
+
+.divContainerPosts #postTable tr td.td:nth-child(1),
+.divContainerPosts #postTable tr td.td:nth-child(2){
+    /* overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2; */
+ }
+
+.divContainerPosts #postTable tr td.td:nth-child(1){
+    width: 25%;
+    /* background-color: yellow; */
+}
+
+.divContainerPosts #postTable tr td.td:nth-child(2){
+    width: 35%;
+    /* background-color: red; */
+}
+
+.divContainerPosts #postTable tr td.td:nth-child(3){
+    width: 20%;
+    /* background: #FD9E9E; */
+}
+
+.divContainerPosts #postTable tr td.td:nth-child(4){
+    width: 10%;
+    /* background: aqua; */
+}
+
+
+
+/* ***************************** */
+/* **** STYLE INFORMATION****** */
+/* *************************** */
+.big.divInfos .tr,
+.big.divInfos .tr1
+{
+    margin: 20px 0 !important;
+}
+
+.big.divInfos{
+    margin: 20px;
+    border-radius: 4px; 
+}
+
+.big.divInfos h1{
+    font-size: 28px;
+    width: 80%;
+}
+
+.big.divInfos #sect2{
+    padding-top: 0 !important;
+}
+
+.divInfos{
+    position: relative;
+}
+
+#editUser{
+    position: absolute;
+    right: 4%;
+}
+
+
+/* ****************** */
+.divNotELement{
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+/* ****************** */
+/* ****BTN LOAD***** */
+/* **************** */
+.loadLink{
+    background: #006778;
+    text-align: center;
+    padding: 20px 50px;
+    border-radius: 4px;
+    color: #fff;
+}
+
+
+
+/* ************************* */
+/* ********PAGINATION****** */
+/* *********************** */
+.divPagination{
+    text-align: center;
+    margin-bottom: 40px;
+}
+.divPagination a.prev_next_link{
+    background: #006778;
+    color: #ffffff;
+    border: none;
+    padding: 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.divPagination a.prev_next_link.lock{
+    background: #d7d7d7;
+}
+
+.divPagination a.prev_next_link.left{
+    margin-right: 20px;
+}
+.divPagination a.prev_next_link.right{
+    margin-left: 20px;
+}
+
+.divPagination a.prev_next_link .fa-solid{
+    margin: 0 4px;
+}
+
+.divPagination .page-link{
+    background: #C4C4C4;
+    padding: 15px;
+    border-radius: 50%;
+    color: #000000;
+    margin: 20px 0 !important;
+    font-weight: bold;
+}
+
+.divPagination .page-link.active{
+    background: #FD9E9E;
+    color: #ffffff;
+}
+
+
+.divCommentaires table,
+.divTodos table{
+    margin-bottom: 50px;
+}

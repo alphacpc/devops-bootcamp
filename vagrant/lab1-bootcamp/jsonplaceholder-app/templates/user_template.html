@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/980cff0283.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/compte.css') }}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/account.css') }}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/todos.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/forms.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+    {% block title%}{% endblock%}
+</head>
+<body>
+    
+    <div class="userContainer">
+        
+        <input type="checkbox" id="bars">
+        <label for="bars"><span id="spanBars" class="fa fa-bars"></span></label>
+
+        <div class="divSideBar">
+            
+            
+            <div class="divUsername">
+                <h1>{{user.fullname}}</h1>
+            </div>
+            
+            <ul class="ulLinks">
+                <li class="linkItem user active"><span class="fa fa-user"></span> <a href="/compte">Informations</a></li>
+                <li class="linkItem posts"><span class="fa-solid fa-file-lines"></span><a href="/posts">Posts</a></li>
+                <li class="linkItem albums"><span class="fa-solid fa-images"></span><a href="/albums">Albums</a></li>
+                <li class="linkItem todos"><span class="fa-solid fa-list-ul"></span><a href="/todos">Todos</a></li>
+                <li class="linkItem"><span class="fa-solid fa-house"></span><a href="/">Accueil</a></li>
+                <li class="linkItem"><span class="fa-solid fa-arrow-right-to-bracket"></span><a href="/logout">Déconnexion</a></li>
+            </ul>
+            
+        </div>
+
+        <div class="divContentUser">
+            {% block contenuUser %}
+    
+            {% endblock%}  
+        </div>
+          
+    </div>
+
+
+    <script src="{{ url_for('static', filename='javascript/main.js') }}"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8jMCX1qK_wk6QUOArAkGyiOd833Vitks&callback=initMap&v=weekly" defer></script>
+</body>
+</html>

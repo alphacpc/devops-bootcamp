@@ -1,0 +1,126 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>Accueil</title>
+{% endblock %}
+
+
+{% block contenu %}
+<div class="content">
+
+    <div class="divOverlay">
+        <form id="formUser" method="post" class="post formBlock">
+            <button id="btnQuite">x</button>
+            <h2>Ajouter un utilisateur</h2>
+            <div>
+              <div class="formGroup">
+                {{ formUser.fullname() }}
+                {{ formUser.username() }}
+                {{ formUser.email() }}
+                {{ formUser.phone() }}
+                {{ formUser.website() }}
+              </div>
+              <div class="formGroup">
+                <p>Adresse</p>
+                {{ formUser.ville() }}
+                {{ formUser.rue() }}
+                {{ formUser.suite() }}
+                {{ formUser.zipcode() }}
+                {{ formUser.lat() }}
+                {{ formUser.long() }}
+              </div>
+              <div class="formGroup">
+                <p>Compagnie</p>
+                {{ formUser.compagny(class="inputCompagny", id="compagny") }}
+                {{ formUser.bs() }}
+                {{ formUser.catch() }}
+              </div>
+            </div>
+            <button type="submit" id="btnSend"> Enregistrer</button>
+          </form>
+    </div>
+
+
+
+    <div class="buttonHome">
+        <button id="ajouter">Ajouter</button>
+        <form id="formLoad" method="post">
+          <input type="number" name="nombre" id="inputNumber" placeholder="nombre" min="1" max="5">
+          <button type="submit" id="charger">Charger</button>
+        </form>
+    </div>
+
+
+        {% if users_length > 0 %}
+        <div class="divHome">
+          <table id="tableHome">
+            <thead>
+                <tr>
+                    <th>Nom Complet</th>
+                    <th>Email</th>
+                    <th>Numéro de Telephone</th>
+                    <th>Site Web</th>
+                </tr>  
+            </thead>
+            <tbody>
+                {% for user in users.items %}
+                  <tr>
+                    <td><a id="loginHomeLink" href="{{'/connexion/'+user.email}}">{{ user.fullname }}</a></td>
+                    <td>{{user.email}}</td>
+                    <td>{{user.phone}}</td>
+                    <td>{{user.website}}</td>
+                  </tr>
+                {% endfor %}
+            </tbody>
+          </table>
+
+          {% if users_length > 5 %}
+            <div class="divPagination">
+              <!-- {% if users.has_prev%}
+                  <button>Précédent</button>
+              {% else%}
+                  <button disabled>Précédent block</button>
+              {% endif %} -->
+              
+              {% for page in users.iter_pages() %}
+
+                  {% if page%}
+                      <a href="?page={{page}}" class="page-link">{{page}}</a>
+                  {% else %}
+                      <a class="page-link">...</a>
+                  {% endif%}
+
+              {% endfor %}
+
+              <!-- {% if users.has_next%}
+                  <button>Suivant</button>
+              {% else%}
+                  <button>Suivant block</button>
+              {% endif %} -->
+            </div>
+          {% endif %}
+          
+        </div>
+        {% else %}
+        <div class="div-no-user">          
+          <p>Aucun utilisateur pour le moment !</p>
+          <p>Veuillez ajouter un utilisateur manuellement ou charger des utilisateurs au niveau de l'APIs !</p>
+        </div>
+
+        {% endif %}
+        
+</div>
+<script>
+ fetch('http://localhost:5000/api/users/')
+.then(response => response.json())
+.then(data => function(){
+    ligne+=`<tr>
+                <td class="no"> <input type="checkbox" name="rowcheck" class="rowcheck"></td>
+                <td>${data.fullname}</td>
+                <td>${data.email}</td>
+                <td>${data.phone}</td>
+                <td>${data.website}</td>
+            </tr>`
+})
+</script>
+{% endblock %}

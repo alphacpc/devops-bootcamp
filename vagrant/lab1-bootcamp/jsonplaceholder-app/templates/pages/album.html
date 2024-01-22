@@ -1,0 +1,100 @@
+{% extends 'user_template.html' %}
+
+{% block title%}
+    <title>Detail album</title>
+{% endblock%}
+
+
+{% block contenuUser %}
+
+<div class="divOverlay">
+    <form id="formPhoto" method="post" class="post formBlock">
+        <button id="btnQuite">x</button>
+        <h2>Ajouter une photo</h2>
+        <div>
+          {{ formPhoto.title() }}
+          {{ formPhoto.url() }}
+          {{ formPhoto.thumbnail() }}
+        </div>
+        <button type="submit" id="btnSend"> Enregistrer</button>
+    </form>  
+</div>
+
+<div class="containerAlbum">
+
+    <div class="btns">
+        <button class="btnForm">Ajouter</button>
+        {% if user.origine == 1 %}
+            <a href="/charger/photos/{{album_name}}" id="loadPhotos" class="loadLink unique">Charger</a>
+        {% endif %}
+    </div>
+    
+    <div class="divContainerAlbum">
+        <div class="divHeadAlbum">
+            <h2>{{album_name}}</h2>
+            <div class="divFaIcons album">
+               <a href="/albums/edit/{{album.id_albums}}"><span class="fa fa-pen"></span></a>
+               <a href="/albums/delete/{{album.id_albums}}"><span class="fa fa-trash"></span></a>
+            </div>
+        </div>
+
+
+        {% if photos.items %}
+            <div class="divAlbums">
+                {% for photo in photos.items %}
+                <div class="singleAlbum">
+                    <div class="divImage">
+                        <img src="{{photo.url}}" alt="{{photo.title_photos}}"/>
+                    </div>
+                    <div class="divPhotos">
+                        <span>{{photo.title_photos}}</span>
+                        <div>
+                            <a href="/photos/edit/{{photo.id_photos}}"><span class="fa fa-pen"></span></a>
+                            <a href="/photos/delete/{{photo.id_photos}}"><span class="fa fa-trash"></span></a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+
+            {% if length > 5 %}
+            <div class="divPagination">
+                {% if photos.has_prev%}
+                    <a class="prev_next_link left" href="/albums/{{album_name}}?page={{photos.prev_num}}"><i class="fa-solid fa-arrow-left"></i>Précédent</a>
+                {% else%}
+                    <a class="prev_next_link lock left">Précédent</a>
+                {% endif %}
+                
+                {% for page in photos.iter_pages() %}
+
+                    {% if page%}
+                        <a href="/albums/{{album_name}}?page={{page}}" class="page-link">{{page}}</a>
+                    {% else %}
+                        <a class="page-link">...</a>
+                    {% endif%}
+
+                {% endfor %}
+
+                {% if photos.has_next%}
+                    <a class="prev_next_link right" href="/albums/{{album_name}}?page={{photos.next_num}}">Suivant<i class="fa-solid fa-arrow-right"></i> </a>
+                {% else%}
+                    <a class="prev_next_link lock right">Suivant</a>
+                {% endif %}
+            </div>
+            {% endif %}
+
+        {% else %}
+            
+            <div class="divNotELement">
+                <p>Veuillez ajouter une photo ou charger les photos</p>
+            </div>
+            
+        {% endif %}
+    </div>
+
+
+
+</div>
+
+{% endblock %}

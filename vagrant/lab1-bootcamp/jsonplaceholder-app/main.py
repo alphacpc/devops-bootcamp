@@ -4,24 +4,22 @@ from dotenv import load_dotenv
 from flask import Flask, render_template
 from routes.index import routers
 
-from flask_sqlalchemy import SQLAlchemy
 from models.create_tables import db
 
-# from flask_cors import CORS
+from flask_cors import CORS
 
 load_dotenv()
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
-# CORS(app)
+
 
 
 app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URI')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = os.getenv('TRACK_MODIFICATIONS')
 app.config['JSON_SORT_KEYS'] = os.getenv('JSON_SORT_KEYS')
-# db = SQLAlchemy(app)
 db.init_app(app)
-# CORS(app, resources={r"/*": {"origins": os.getenv('ACCEPT_ORIGIN_IP')  }}) 
+CORS(app, resources={r"/*": {"origins": os.getenv('ACCEPT_ORIGIN_IP')  }}) 
 
 
 

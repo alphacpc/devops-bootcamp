@@ -9,7 +9,7 @@ Vagrant.configure("2") do |config|
         app.vm.network "forwarded_port", guest: 80, host: 8001
         # app.vm.network "private_network", ip: "172.16.238.10"
         app.vm.hostname = "app01"
-        app.vm.synced_folder "./jsonplaceholder-app", "/home/vagrant/app"
+        app.vm.synced_folder "./jsonplaceholder-app", "/home/vagrant/app", exclude: ["./jsonplaceholder-app/flask-env"]
         app.vm.provider "virtualbox" do |vb|
            vb.gui = false
            vb.name = "app01"
@@ -21,9 +21,9 @@ Vagrant.configure("2") do |config|
           apt-get update
           apt-get -y install python3.10-venv python3-pip
           cd /home/vagrant/app
-          python3 -m venv 
+          python3 -m venv flask-env
           source /home/vagrant/app/flask-env/bin/activate
-          # cd /home/vagrant/app
+          pip install requirement.txt
           python3 main.py
         SHELL
     end

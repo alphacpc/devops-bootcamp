@@ -44,10 +44,15 @@
 
     <div class="buttonHome">
         <button id="ajouter">Ajouter</button>
-        <form id="formLoad" method="post">
-          <input type="number" name="nombre" id="inputNumber" placeholder="nombre" min="1" max="5">
-          <button type="submit" id="charger">Charger</button>
-        </form>
+        <div class="div-form-link">
+          <form id="formLoad" method="post">
+            <input type="number" name="nombre" id="inputNumber" placeholder="nombre" min="1" max="5">
+            <button type="submit" id="charger">Charger</button>
+          </form>
+          {% if users_length > 0 %}
+            <a href="/connexion">se connecter</a>
+          {% endif %}
+        </div>
     </div>
 
 
@@ -110,17 +115,5 @@
         {% endif %}
         
 </div>
-<script>
- fetch('http://localhost:5000/api/users/')
-.then(response => response.json())
-.then(data => function(){
-    ligne+=`<tr>
-                <td class="no"> <input type="checkbox" name="rowcheck" class="rowcheck"></td>
-                <td>${data.fullname}</td>
-                <td>${data.email}</td>
-                <td>${data.phone}</td>
-                <td>${data.website}</td>
-            </tr>`
-})
-</script>
+
 {% endblock %}

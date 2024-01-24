@@ -220,6 +220,22 @@ span{
 }
 
 
+.div-form-link{
+    display: flex;
+    align-items: center;
+}
+
+.div-form-link a{
+    outline: 0;
+    text-decoration: none;
+    margin-left: 10px;
+    font-size: 20px;
+    font-family: sans-serif;
+    color: white;
+    background-color: orangered;
+    padding: 15px;
+    border-radius: 30px;
+}
 
 .buttonHome #inputNumber{
     padding: 15px;

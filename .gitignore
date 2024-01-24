@@ -11,3 +11,4 @@ vagrant/lab1-bootcamp/jsonplaceholder-app/controllers/__pycache__/
 vagrant/lab1-bootcamp/jsonplaceholder-app/models/__pycache__/
 vagrant/lab1-bootcamp/jsonplaceholder-app/routes/__pycache__/
 vagrant/lab1-bootcamp/jsonplaceholder-app/__pycache__/
+vagrant/lab1-bootcamp/jsonplaceholder-app/flask-env/

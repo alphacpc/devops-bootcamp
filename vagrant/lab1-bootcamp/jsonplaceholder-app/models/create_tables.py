@@ -2,10 +2,10 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
 
-app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://root:root@0.0.0.0:5432/admin_db'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-db = SQLAlchemy(app)
+
+# app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://root:root@0.0.0.0:5432/admin_db"
+# app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+db = SQLAlchemy()
 
 # CORS(app)
 
@@ -164,5 +164,10 @@ class Photos(db.Model):
 
 
 
-def create_all_tables():
-    db.create_all()
+# def create_all_tables():
+    
+    # with app.app_context():
+        # db.create_all()
+        # pass
+    
+    # db.create_all()

@@ -12,6 +12,7 @@ Vagrant.configure("2") do |config|
         #app.vm.synced_folder "./app", "/app", disabled: true
         app.vm.provider "virtualbox" do |vb|
            vb.gui = false
+           vb.name = "app01"
            vb.memory = "2048"
         end
 
@@ -55,3 +56,6 @@ Vagrant.configure("2") do |config|
 
   end
   
+# J'ai eu un probleme quand j'ai donné les adresses 172.16, le range d'adresse IP était sur du 192.168
+# vagrant status
+# vagrant up app01

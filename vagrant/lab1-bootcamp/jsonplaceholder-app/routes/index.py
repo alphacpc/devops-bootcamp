@@ -1,5 +1,5 @@
 from flask import Blueprint
-from controllers.index import  home, login, compte, posts, post, albums, album, todos, logout
+from controllers.index import home, login, compte, posts, post, albums, album, todos, logout
 from controllers.index import updated, delete
 from controllers.index import show
 from controllers.index import load_data, load_photos

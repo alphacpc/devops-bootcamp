@@ -1,4 +1,4 @@
-#!/home/alphacpc/Projects/bootcamp_devops/vagrant/lab1-bootcamp/jsonplaceholder-app/flask-env/bin/python3
+#!/home/vagrant/app/flask-env/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys

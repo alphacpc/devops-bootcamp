@@ -37,8 +37,7 @@ def not_found(error):
 
 if __name__=='__main__':
     # create_all_tables()
-    
     with app.app_context():
         db.create_all()
         # pass
-    app.run(debug=True,port=5000)
+    app.run(host=os.getenv('IP'),debug=True,port=5000)

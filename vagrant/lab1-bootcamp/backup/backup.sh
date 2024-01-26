@@ -3,7 +3,7 @@
 # Configuration des variables
 DB_USER="alphacpc"
 DB_NAME="app"
-BACKUP_DIR="/home/alphacpc/Projects/backup"
+BACKUP_DIR="/home/vagrant/backup"
 DATE=$(date +%Y%m%d%H%M%S)
 BACKUP_FILE="$BACKUP_DIR/$DB_NAME-$DATE.sql"
 
@@ -11,7 +11,7 @@ BACKUP_FILE="$BACKUP_DIR/$DB_NAME-$DATE.sql"
 export PGPASSWORD="alphacpc"
 
 # Commande de sauvegarde
-pg_dump -U $DB_USER $DB_NAME > $BACKUP_FILE
+pg_dump -U $DB_USER -d $DB_NAME -h '192.168.56.11' > $BACKUP_FILE
 
 # Vérifier si la sauvegarde a réussi
 if [ $? -eq 0 ]; then

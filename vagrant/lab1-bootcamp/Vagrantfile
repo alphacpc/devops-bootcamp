@@ -38,10 +38,16 @@ Vagrant.configure("2") do |config|
           apt-get update
           apt-get -y install python3.10-venv python3-pip net-tools
           cd /home/vagrant/app
-          python3 -m venv flask-env
-          source /home/vagrant/app/flask-env/bin/activate
+          venv_dir="/home/vagrant/app/flask-env"
+          if [ -d "$venv_dir" ]; then
+              echo "Le répertoire $venv_dir existe déjà."
+          else
+              echo "Le répertoire $venv_dir n'existe pas. Création de l'environnement virtuel..."
+              python3 -m venv $venv_dir
+          fi
+          source /home/vagrant/app/flask-envv/bin/activate
           pip install -r requirement.txt
-          python3 main.py
+          nohup python3 main.py &
         SHELL
     end
 

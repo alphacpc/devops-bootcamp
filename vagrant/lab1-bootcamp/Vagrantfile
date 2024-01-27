@@ -47,8 +47,8 @@ Vagrant.configure("2") do |config|
               python3 -m venv $venv_dir
           fi
           source /home/vagrant/app/flask-envv/bin/activate
-          pip install -r requirement.txt
-          nohup python3 main.py &
+          # pip install -r requirement.txt
+          # nohup python3 main.py &
         SHELL
     end
 

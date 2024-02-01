@@ -9,4 +9,3 @@ Création d'une plateforme interactive utilisant l'API JSONPlaceholder. Les util
 
 Le projet, développé en Python avec le micro-framework Flask, permet aux utilisateurs d'interagir avec l'API JSONPlaceholder. Ils peuvent charger et gérer des données utilisateur tout en bénéficiant d'une connexion personnalisée.
 
-

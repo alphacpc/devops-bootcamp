@@ -23,9 +23,6 @@ Vagrant.configure("2") do |config|
     config.vm.define "app01_machine" do |app|
         app.vm.box = "ubuntu/jammy64"
         app.vm.network "private_network", ip: "192.168.56.10"
-        # app.vm.network "forwarded_port", guest: 80, host: 8001
-        # app.vm.network "forwarded_port", guest: 5000, host: 8002
-        # app.vm.network "private_network", ip: "172.16.238.10"
         app.vm.hostname = "app01"
         app.vm.synced_folder "./jsonplaceholder-app", "/home/vagrant/app", exclude: ["./jsonplaceholder-app/flask-env"]
         app.vm.provider "virtualbox" do |vb|
@@ -37,7 +34,7 @@ Vagrant.configure("2") do |config|
         app.vm.provision "shell", inline: <<-SHELL
           export DEBIAN_FRONTEND=noninteractive
           apt-get update
-          apt-get -y install python3.10-venv python3-pip net-tools
+          apt-get -y install python3.10-venv python3-pip net-tools nginx
           cd /home/vagrant/app
           venv_dir="/home/vagrant/app/flask-env"
           if [ -d "$venv_dir" ]; then
@@ -49,8 +46,7 @@ Vagrant.configure("2") do |config|
               source /home/vagrant/app/flask-env/bin/activate
               pip install -r requirement.txt
           fi
-          # nohup python3 main.py & echo "Server web running"
-          # python3 main.py
+          nohup python3 main.py & echo "Server web running"
         SHELL
     end
 
@@ -67,13 +63,7 @@ Vagrant.configure("2") do |config|
         # config.vm.provision "shell", inline: <<-SHELL
         #   apt-get update
         #   apt-get upgrade
-        #   apt-get install vsftpd
-        #   apt-get update
         # SHELL
     end
 
   end
-  
-# J'ai eu un probleme quand j'ai donné les adresses 172.16, le range d'adresse IP était sur du 192.168
-# vagrant status
-# vagrant up app01
